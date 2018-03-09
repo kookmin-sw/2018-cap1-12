@@ -3,7 +3,7 @@
 
 **팀페이지 주소** 
 
-12조  https://kookmin-sw.github.io/2018-cap-12
+12조  https://kookmin-sw.github.io/2018-cap1-12
 
 ## readme파일에 아래와 같은 내용들을 추가하세요.
 
