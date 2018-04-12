@@ -18,6 +18,7 @@
 ### 황 용 환 (팀장)
 * Tel: 010-9177-1204
 * Github: [https://github.com/Hwangyonghwan](https://github.com/Hwangyonghwan)
+* Role : 폰트 생성 모델 구현, 전반적인 프로세스 관리
 
 ![Alt text](/Image/Hwang.jpeg)
 
@@ -25,6 +26,7 @@
 ### 김 선 규 (팀원)
 * Tel: 010-2987-2260
 * Github: [https://github.com/kimsk9410](https://github.com/kimsk9410)
+* Role : 폰트 생성 모델 구현, 웹 인터페이스 개발
 
 ![Alt text](/Image/Kim.jpeg)
 
@@ -32,6 +34,7 @@
 ### 오 근 택 (팀원)
 * Tel: 010-6745-4412
 * Github: [https://github.com/GeunTeakOh](https://github.com/GeunTeakOh)
+* Role : 폰트 생성 모델 구현, 영상 처리
 
 ![Alt text](/Image/Oh.jpeg)
 
@@ -39,6 +42,7 @@
 ### 이 상 욱 (팀원)
 * Tel: 010-3008-8478
 * Github: [https://github.com/leekitten123](https://github.com/leekitten123)
+* Role : 폰트 생성 모델 구현, 데이터 수집 및 
 
 ![Alt text](/Image/Lee.jpg)
 
