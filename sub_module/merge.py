@@ -30,7 +30,7 @@ def path2file_name(p):
 	file_name=""
 	for a in label:
 		file_name+=str(a)
-	file_name = file_name.split('.')[0]
+	file_name = file_name.split('.jpg')[0]
 
 	return file_name
 	
@@ -50,7 +50,6 @@ if __name__=="__main__":
 
 		for p2 in paths2:
 			name2 = path2file_name(p2)
-
 			if name1 == name2:
 				if dst_dir[-1] != '/':
 					dst_dir += '/'
