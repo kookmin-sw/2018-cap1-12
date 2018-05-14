@@ -122,6 +122,9 @@ def vectoralize_potrace(PIL_img, unicod):
     take PIL, convert to svg and save to vectored_local_svg
     """
     path = 'tmp/'
+    if not os.path.isdir("./" + path):
+        os.mkdir("./" + path)
+
     file_name = 'u' + unicod.upper() + '-UNI' + unicod.lower()
     PIL_img.save(path + file_name + '.bmp')
     # logging.info(":: [system call] potrace -s %s" % (path + file_name + '.bmp'))
@@ -135,8 +138,8 @@ def svgs2ttf(svg_set):
     go through hash 'svg_set', read each unicode & svgfile, compine all to one ttf file and return single ttf file
     svg_set is svg filenames
     """
-    DEFAULT_SVG = 'assets/NanumPen.svg'
-    FONT_NAME = 'default'
+    DEFAULT_SVG = 'assets/base.svg'
+    FONT_NAME = 'MyFont'
     NEW_SVG = FONT_NAME + ".svg"
     cp_svg(DEFAULT_SVG, NEW_SVG)
     for svg in svg_set:

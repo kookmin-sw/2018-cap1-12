@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 import xml.etree.ElementTree as ET
 import os, logging
 

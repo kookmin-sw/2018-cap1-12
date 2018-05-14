@@ -2,12 +2,14 @@
 # -*- coding: utf-8 -*-
 from PIL import Image, ImageChops, ImageOps
 from modify import trim_resize_PIL, noise_filter, svgs2ttf, resize_trim_PIL, vectoralize_potrace
+from data import get_data_unicodes, get_data_address
 
 
 def processing():
 
-	unicodes = ["AC12"]
-	input_address = "AppleMyungjo.jpg"
+	path = "data"
+	unicodes = get_data_unicodes(path)
+	# input_address = get_data_address(path)
 	svg_set = []
 	output_images = {}
 
@@ -17,6 +19,7 @@ def processing():
     	- 입력 : url
     	- 반환 : image
     	"""
+		input_address = "" + path + "/" + input_unicode + ".png"
 		input_PIL = Image.open(input_address)
 		# input_PIL.save("input_PIL.png")
 
