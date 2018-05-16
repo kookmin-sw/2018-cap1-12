@@ -1,0 +1,14 @@
+@CHARSET "UTF-8"; 
+/************* Common *************/ 
+
+@font-face { 
+	font-family: 'NanumGothic'; 
+	src: url(/Users/iamyonghwan/capstone/server/fonts/a한글세상M.otf) 
+	format('truetype'); 
+} 
+
+body { 
+	font-family: NanumGothic; 
+}
+
+

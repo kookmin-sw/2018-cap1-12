@@ -1,0 +1,7 @@
+.full-screen{width: 100%;}
+.container{width: 100%; max-width: 1200px; margin: 0px auto;}
+.header-logo{float: left; vertical-align: middle; height: 100px;}
+.header-menu{float: right; vertical-align: middle; height: 100px; text-align: center;}
+.header-menu td{min-width: 50px;}
+.header-menu a{text-decoration: none;}
+.header-menu .menu-item{padding: 10px 15px; border: 1px solid #999;}
