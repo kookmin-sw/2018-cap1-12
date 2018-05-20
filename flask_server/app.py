@@ -42,11 +42,21 @@ def use():
 
 @app.route('/text/<fontname>')
 def text(fontname):
-	return render_template('text.html', fontname = fontname)
+	if fontname == 'header':
+		return render_template('header.html')
+	elif fontname == 'footer':
+		return render_template('footer.html')
+	else:
+		return render_template('text.html', fontname = fontname)
 
 @app.route('/uploadFile/<filename>')
 def uploadFile(filename):
-	return render_template('uploadFile.html', filename=filename)
+	if filename == 'header':
+		return render_template('header.html')
+	elif filename == 'footer':
+		return render_template('footer.html')
+	else:
+		return render_template('uploadFile.html', filename=filename)
 
 @app.route('/display')
 def display_cutImage():
@@ -79,9 +89,9 @@ def upload():
 def header():
 	return render_template('header.html')
 
-@app.route('/head')
-def head():
-	return render_template('head.html')
+@app.route('/footer')
+def footer():
+	return render_template('footer.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug = True)

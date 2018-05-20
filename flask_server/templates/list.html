@@ -5,6 +5,7 @@
         <title>My Font</title>
         <meta name="description" content="Kookmin University Capstone Project of Team 12">
         <link rel="stylesheet" href={{ url_for('static', filename='css/main.css') }}>
+        <link rel="stylesheet" href={{ url_for('static', filename='css/list.css') }}>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
         <script type="text/javascript" src={{ url_for('static', filename='js/common.js') }}></script>
@@ -28,7 +29,7 @@
                             {% if loop.index % 4 == 0 %}
                                 <tr>
                             {% endif %}
-                                <td><a href="text/{{ fontfile }}"><img src={{ url_for('static', filename='image/logo.png') }}><br>{{ fontname }}</a></td>
+                                <td><a href="text/{{ fontfile }}"><img src={{ url_for('static', filename='image/logo.png') }}><br><div style="margin-top: 10px;">{{ fontname }}</div></a></td>
                             {% if loop.index % 3 == 0 %}
                                 </tr>
                             {% endif %}
@@ -38,16 +39,6 @@
             </div>
         </section>
         
-        <footer>
-            <div class="full-screen" style="background-color:#fff; height:100px;">
-                <div class="container" style="background-color:#fff; height:100px;">
-                    <table width="100%">
-                        <tr>
-                            <td height="100px" align="center">FOOTER</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </footer>
+        <footer w3-include-html="footer"></footer>
     </body>
 </html>

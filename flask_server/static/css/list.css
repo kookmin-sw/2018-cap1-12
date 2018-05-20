@@ -1,2 +1,3 @@
 .list-table td{text-align: center; padding: 30px 10px;}
-.list-table a{text-decoration: none;}
+.list-table a{color: #593a07;}
+.list-table a:hover{text-decoration: none; color: #593a07;}

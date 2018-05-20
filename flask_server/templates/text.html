@@ -1,19 +1,42 @@
 <html>
 <head>
-<meta charset="UTF-8">
-<style type="text/css">
-@font-face{
-	font-family:'userFont';
-	src:url({{ url_for('static', filename='fonts/'+fontname) }});
-}
-</style>
+	<meta charset="utf-8">
+      <title>My Font</title>
+      <meta name="description" content="Kookmin University Capstone Project of Team 12">
+      <link rel="stylesheet" href={{ url_for('static', filename='css/main.css') }}>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+      <script type="text/javascript" src={{ url_for('static', filename='js/common.js') }}></script>
+	<style type="text/css">
+		@font-face{
+			font-family:'userFont';
+			src:url({{ url_for('static', filename='fonts/'+fontname) }});
+		}
+	</style>
 </head>
 <body>
-	<p style="font-family:userFont;">글꼴 스타일 적용</p>
+	<header w3-include-html="header"></header>
+      <script>includeHTML();</script>
 
-	<div class="textbox">
-		<label for="ex_input">text</label>
-		<input type="text" id="ex_input" size = 100 hight = 100 style="font-family:userFont;">
-	</div>
+      <section class="body-of-fixed-header">
+           <div class="full-screen" style="background-color:#fff;">
+                	<div class="container" style="background-color:#fff;">
+                    	<table width="100%">
+                        	<tr>
+                            	<td align="center">
+                            		<p style="font-family:userFont;">{{ fontname }} 적용 글꼴</p>
+
+                            		<div class="textbox">
+								<label for="ex_input"></label>
+								<input type="text" id="ex_input" hight = 100 style="font-family:userFont;" placeholder="">
+							</div>
+                            	</td>
+                      	 	</tr>
+                     	</table>
+                 </div>
+        	</div>
+     	</section>
+
+	<footer w3-include-html="footer"></footer>
 </body>
 </html>
