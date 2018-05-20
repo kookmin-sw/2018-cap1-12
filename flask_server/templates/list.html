@@ -23,23 +23,16 @@
                             <col width="33.3%">
                             <col width="33.3%">
                         </colgroup>
-                        <tr>
-                            <td><a href="index.html"><img src={{ url_for('static', filename='image/logo.png') }}><br>폰트명</a></td>
-                            <td><a href="index.html"><img src={{ url_for('static', filename='image/logo.png') }}><br>폰트명</a></td>
-                            <td><a href="index.html"><img src={{ url_for('static', filename='image/logo.png') }}><br>폰트명</a></td>
-                        </tr>
-                        
-                        <tr>
-                            <td><a href="index.html"><img src={{ url_for('static', filename='image/logo.png') }}><br>폰트명</a></td>
-                            <td><a href="index.html"><img src={{ url_for('static', filename='image/logo.png') }}><br>폰트명</a></td>
-                            <td><a href="index.html"><img src={{ url_for('static', filename='image/logo.png') }}><br>폰트명</a></td>
-                        </tr>
-                        
-                        <tr>
-                            <td><a href="index.html"><img src={{ url_for('static', filename='image/logo.png') }}><br>폰트명</a></td>
-                            <td><a href="index.html"><img src={{ url_for('static', filename='image/logo.png') }}><br>폰트명</a></td>
-                            <td><a href="index.html"><img src={{ url_for('static', filename='image/logo.png') }}><br>폰트명</a></td>
-                        </tr>
+                        {% for fontfile in tt %}
+                            {% set fontname = fontfile.split('.')[0] %}
+                            {% if loop.index % 4 == 0 %}
+                                <tr>
+                            {% endif %}
+                                <td><a href="text/{{ fontfile }}"><img src={{ url_for('static', filename='image/logo.png') }}><br>{{ fontname }}</a></td>
+                            {% if loop.index % 3 == 0 %}
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
                     </table>
                 </div>
             </div>

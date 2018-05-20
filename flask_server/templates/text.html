@@ -1,0 +1,19 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+@font-face{
+	font-family:'userFont';
+	src:url({{ url_for('static', filename='fonts/'+fontname) }});
+}
+</style>
+</head>
+<body>
+	<p style="font-family:userFont;">글꼴 스타일 적용</p>
+
+	<div class="textbox">
+		<label for="ex_input">text</label>
+		<input type="text" id="ex_input" size = 100 hight = 100 style="font-family:userFont;">
+	</div>
+</body>
+</html>
