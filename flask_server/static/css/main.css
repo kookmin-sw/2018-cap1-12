@@ -1,12 +1,16 @@
 .fixed-header{position: fixed; top: 0px; z-index: 1000}
 .body-of-fixed-header{margin-top: 100px;}
-
 .full-screen{width: 100%;}
 .container{width: 100%; max-width: 1200px; margin: 0px auto;}
+
 .header-logo{float: left; vertical-align: middle; height: 100px;}
 .header-menu{float: right; vertical-align: middle; height: 100px; text-align: center;}
 .header-menu td{min-width: 50px;}
 .header-menu a:hover{text-decoration: none;}
 .header-menu .menu-item{padding: 10px 15px; color: #593a07;}
 
-.caption-of-video{text-align: center;}
+.caption-of-video{text-align: center; margin-top: 10px; margin-bottom: 30px;}
+
+.h20{width: 100%; height: 20px;}
+
+.view-team table ul li{padding: 10px 0px;}
