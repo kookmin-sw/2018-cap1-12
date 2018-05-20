@@ -5,11 +5,13 @@
         <title>My Font</title>
         <meta name="description" content="Kookmin University Capstone Project of Team 12">
         <link rel="stylesheet" href={{ url_for('static', filename='css/main.css') }}>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     </head>
 
     <body>
         <header>
-            <div class="full-screen" style="background-color:#000; height:100px;">
+            <div class="full-screen fixed-header" style="background-color:#fff; height:100px;">
                 <div class="container" style="background-color:#fff; height:100px;">
                     <table class="header-logo">
                         <tr>
@@ -28,24 +30,57 @@
             </div>
         </header>
         
-        <section>
-            <div class="full-screen" style="background-color:#000;">
+        <section class="body-of-fixed-header">
+            <div class="full-screen" style="background-color:#fff;">
                 <div class="container" style="background-color:#fff;">
-                    <table width="100%">
-                        <tr>
-                            <td height="100px" align="center">HOME BODY</td>
-                        </tr>
-                    </table>
+                    <div class="row">
+                        <div class="col-4">
+                            <video autoplay="autoplay" loop="loop" width="100%">
+                                <source src={{ url_for('static', filename='image/main/ehs_eh.mp4') }} type="video/mp4"/>
+                            </video>
+                            <p class="caption-of-video">[돈 -> 도]</p>
+                        </div>
+                        <div class="col-4">
+                            <video autoplay="autoplay" loop="loop" width="100%">
+                                <source src={{ url_for('static', filename='image/main/djqt_dlT.mp4') }} type="video/mp4"/>
+                            </video>
+                            <p class="caption-of-video">[없 -> 있]</p>
+                        </div>
+                        <div class="col-4">
+                            <video autoplay="autoplay" loop="loop" width="100%">
+                                <source src={{ url_for('static', filename='image/main/ek_Ek.mp4') }} type="video/mp4"/>
+                            </video>
+                            <p class="caption-of-video">[다 -> 따]</p>
+                        </div>
+                        <div class="col-4">
+                            <video autoplay="autoplay" loop="loop" width="100%">
+                                <source src={{ url_for('static', filename='image/main/ek_rh.mp4') }} type="video/mp4"/>
+                            </video>
+                            <p class="caption-of-video">[다 -> 고]</p>
+                        </div>
+                        <div class="col-4">
+                            <video autoplay="autoplay" loop="loop" width="100%">
+                                <source src={{ url_for('static', filename='image/main/fk_rk.mp4') }} type="video/mp4"/>
+                            </video>
+                            <p class="caption-of-video">[라 -> 가]</p>
+                        </div>
+                        <div class="col-4">
+                            <video autoplay="autoplay" loop="loop" width="100%">
+                                <source src={{ url_for('static', filename='image/main/sms_dms.mp4') }} type="video/mp4"/>
+                            </video>
+                            <p class="caption-of-video">[는 -> 은]</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         
         <footer>
-            <div class="full-screen" style="background-color:#000; height:100px;">
-                <div class="container" style="background-color:#fff; height:100px;">
+            <div class="full-screen" style="background-color:#fff; height:400px;">
+                <div class="container" style="background-color:#fff; height:400px;">
                     <table width="100%">
                         <tr>
-                            <td height="100px" align="center">FOOTER</td>
+                            <td height="400px" align="center">FOOTER</td>
                         </tr>
                     </table>
                 </div>
