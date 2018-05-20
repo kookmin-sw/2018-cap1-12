@@ -13,7 +13,7 @@ import os
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-UPLOAD_FOLDER = 'pictures/'			#업로드된 파일이 저장되는 곳
+UPLOAD_FOLDER = 'static/pictures/'			#업로드된 파일이 저장되는 곳
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])	#허용할 파일 확장자
 
 app = Flask(__name__)
@@ -44,6 +44,25 @@ def use():
 def text(fontname):
 	return render_template('text.html', fontname = fontname)
 
+@app.route('/uploadFile/<filename>')
+def uploadFile(filename):
+	return render_template('uploadFile.html', filename=filename)
+
+@app.route('/display')
+def display_cutImage():
+	return render_template('cutImage.html')
+
+@app.route('/uploadFile/cutImage', methods=['GET', 'POST'])
+def cutImage():
+	if request.method == 'POST':
+		filename = request.form['filename']
+		lineNumber = request.form['lineNumber']
+		ttfName = request.form['ttfName']
+		print lineNumber
+		print ttfName
+		print filename
+		return redirect(url_for('display_cutImage'))
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
 	uploaded_files = request.files.getlist('profile[]')
@@ -54,7 +73,7 @@ def upload():
 				filename = secure_filename(file.filename)	#파일명 보호
 				file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 				filenames.append(filename)
-		return redirect(url_for("list"))
+		return redirect(url_for("uploadFile", filename=filename))
 
 @app.route('/header')
 def header():
