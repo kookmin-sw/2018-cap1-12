@@ -20,6 +20,9 @@ app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+font_dir = "static/fonts"
+tt = os.walk(font_dir).next()[2]
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -31,11 +34,15 @@ def index():
 
 @app.route('/list')
 def list():
-	return render_template('list.html')
+	return render_template('list.html', tt=tt)
 
 @app.route('/use')
 def use():
 	return render_template('use.html')
+
+@app.route('/text/<fontname>')
+def text(fontname):
+	return render_template('text.html', fontname = fontname)
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
