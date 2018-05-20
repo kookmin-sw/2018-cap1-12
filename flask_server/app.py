@@ -49,5 +49,13 @@ def upload():
 				filenames.append(filename)
 		return redirect(url_for("list"))
 
+@app.route('/header')
+def header():
+	return render_template('header.html')
+
+@app.route('/head')
+def head():
+	return render_template('head.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug = True)
