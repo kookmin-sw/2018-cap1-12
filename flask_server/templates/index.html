@@ -1,74 +1,173 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>My Font</title>
-        <meta name="description" content="Kookmin University Capstone Project of Team 12">
-        <link rel="stylesheet" href={{ url_for('static', filename='css/main.css') }}>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-        <script type="text/javascript" src={{ url_for('static', filename='js/common.js') }}></script>
-    </head>
+	<head>
+    	  	<meta charset="utf-8">
+        	<title>My Font</title>
+        	<meta name="description" content="Kookmin University Capstone Project of Team 12">
+        	<link rel="stylesheet" href={{ url_for('static', filename='css/main.css') }}>
+        	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+		<script type="text/javascript" src={{ url_for('static', filename='js/common.js') }}></script>
+    	</head>
 
-    <body>
-        <header w3-include-html="header"></header>
-        <script>includeHTML();</script>
+    	<body>
+        	<header w3-include-html="header"></header>
+        	<script>includeHTML();</script>
         
-        <section class="body-of-fixed-header">
-            <div class="full-screen" style="background-color:#fff;">
-                <div class="container" style="background-color:#fff;">
-                    <div class="row">
-                        <div class="col-4">
-                            <video autoplay="autoplay" loop="loop" width="100%">
-                                <source src={{ url_for('static', filename='image/main/ehs_eh.mp4') }} type="video/mp4"/>
-                            </video>
-                            <p class="caption-of-video">[돈 -> 도]</p>
-                        </div>
-                        <div class="col-4">
-                            <video autoplay="autoplay" loop="loop" width="100%">
-                                <source src={{ url_for('static', filename='image/main/djqt_dlT.mp4') }} type="video/mp4"/>
-                            </video>
-                            <p class="caption-of-video">[없 -> 있]</p>
-                        </div>
-                        <div class="col-4">
-                            <video autoplay="autoplay" loop="loop" width="100%">
-                                <source src={{ url_for('static', filename='image/main/ek_Ek.mp4') }} type="video/mp4"/>
-                            </video>
-                            <p class="caption-of-video">[다 -> 따]</p>
-                        </div>
-                        <div class="col-4">
-                            <video autoplay="autoplay" loop="loop" width="100%">
-                                <source src={{ url_for('static', filename='image/main/ek_rh.mp4') }} type="video/mp4"/>
-                            </video>
-                            <p class="caption-of-video">[다 -> 고]</p>
-                        </div>
-                        <div class="col-4">
-                            <video autoplay="autoplay" loop="loop" width="100%">
-                                <source src={{ url_for('static', filename='image/main/fk_rk.mp4') }} type="video/mp4"/>
-                            </video>
-                            <p class="caption-of-video">[라 -> 가]</p>
-                        </div>
-                        <div class="col-4">
-                            <video autoplay="autoplay" loop="loop" width="100%">
-                                <source src={{ url_for('static', filename='image/main/sms_dms.mp4') }} type="video/mp4"/>
-                            </video>
-                            <p class="caption-of-video">[는 -> 은]</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        	<section class="body-of-fixed-header">
+            	<div class="full-screen" style="background-color:#fff;">
+                		<div class="container" style="background-color:#fff;">
+                    		<div class="row">
+                        		<div class="col-6">
+                            		<video autoplay="autoplay" loop="loop" width="100%">
+                                			<source src={{ url_for('static', filename='image/main/ehs_eh.mp4') }} type="video/mp4"/>
+                            		</video>
+                            		<p class="caption-of-video">[돈 -> 도]</p>
+                        		</div>
+
+                        		<div class="col-6">
+                            		<video autoplay="autoplay" loop="loop" width="100%">
+                                			<source src={{ url_for('static', filename='image/main/djqt_dlT.mp4') }} type="video/mp4"/>
+                            		</video>
+                            		<p class="caption-of-video">[없 -> 있]</p>
+                        		</div>
+
+                        		<div class="col-6">
+                            		<video autoplay="autoplay" loop="loop" width="100%">
+                                			<source src={{ url_for('static', filename='image/main/ek_Ek.mp4') }} type="video/mp4"/>
+                            		</video>
+                            		<p class="caption-of-video">[다 -> 따]</p>
+                        		</div>
+
+                        		<div class="col-6">
+                            		<video autoplay="autoplay" loop="loop" width="100%">
+                                			<source src={{ url_for('static', filename='image/main/ek_rh.mp4') }} type="video/mp4"/>
+                            		</video>
+                            		<p class="caption-of-video">[다 -> 고]</p>
+                        		</div>
+
+                        		<div class="col-6">
+                            		<video autoplay="autoplay" loop="loop" width="100%">
+                                			<source src={{ url_for('static', filename='image/main/fk_rk.mp4') }} type="video/mp4"/>
+                            		</video>
+                            		<p class="caption-of-video">[라 -> 가]</p>
+                        		</div>
+
+                        		<div class="col-6">
+                            		<video autoplay="autoplay" loop="loop" width="100%">
+                                			<source src={{ url_for('static', filename='image/main/sms_dms.mp4') }} type="video/mp4"/>
+                            		</video>
+                            		<p class="caption-of-video">[는 -> 은]</p>
+                        		</div>
+                    		</div>
+
+                    		<div class="h20"></div>
+
+                    		<div class="row view-team">
+                    			<div class="col-6">
+                    				<table width="100%">
+                    					<colgroup>
+                    						<col width="40%">
+                    						<col width="60%">
+                    					</colgroup>
+                    					<tr>
+                    						<td>
+                    							<img src={{ url_for('static', filename='image/main/Hwang.jpeg') }}  width="100%" style="max-width: 240px">
+                    						</td>
+                    						<td>
+                    							<ul style="list-style: none; margin: 0px;">
+                    								<li>- 이름 : 황용환</li>
+                    								<li>- 직책 : 팀장</li>
+                    								<li>- E-mail : iamyonghwan@nate.com</li>
+                    								<li>- tel : 010-9177-1204</li>
+                    							</ul>
+                    						</td>
+                    					</tr>
+                    				</table>
+                    			</div>
+
+                    			<div class="col-6">
+                    				<table width="100%">
+                    					<colgroup>
+                    						<col width="40%">
+                    						<col width="60%">
+                    					</colgroup>
+                    					<tr>
+                    						<td>
+                    							<img src={{ url_for('static', filename='image/main/Kim.jpeg') }} width="100%" style="max-width: 240px">
+                    						</td>
+                    						<td>
+                    							<ul style="list-style: none; margin: 0px;">
+                    								<li>- 이름 : 김선규</li>
+                    								<li>- 직책 : 팀원</li>
+                    								<li>- E-mail : kimsk9410@gmail.com</li>
+                    								<li>- tel : 010-2987-2260</li>
+                    							</ul>
+                    						</td>
+                    					</tr>
+                    				</table>
+                    			</div>
+
+                    			<div class="h20"></div>
+
+                    			<div class="col-6">
+                    				<table width="100%">
+                    					<colgroup>
+                    						<col width="40%">
+                    						<col width="60%">
+                    					</colgroup>
+                    					<tr>
+                    						<td>
+                    							<img src={{ url_for('static', filename='image/main/Oh.jpeg') }}  width="100%" style="max-width: 240px">
+                    						</td>
+                    						<td>
+                    							<ul style="list-style: none; margin: 0px;">
+                    								<li>- 이름 : 오근택</li>
+                    								<li>- 직책 : 팀원</li>
+                    								<li>- E-mail : rmsxor94@naver.com</li>
+                    								<li>- tel : 010-6745-4412</li>
+                    							</ul>
+                    						</td>
+                    					</tr>
+                    				</table>
+                    			</div>
+
+                    			<div class="col-6">
+                    				<table width="100%">
+                    					<colgroup>
+                    						<col width="40%">
+                    						<col width="60%">
+                    					</colgroup>
+                    					<tr>
+                    						<td>
+                    							<img src={{ url_for('static', filename='image/main/Lee.jpg') }}  width="100%" style="max-width: 240px">
+                    						</td>
+                    						<td>
+                    							<ul style="list-style: none; margin: 0px;">
+                    								<li>- 이름 : 이상욱</li>
+                    								<li>- 직책 : 팀원</li>
+                    								<li>- E-mail : leekitten123@hanmail.net</li>
+                    								<li>- tel : 010-3008-8478</li>
+                    							</ul>
+                    						</td>
+                    					</tr>
+                    				</table>
+                    			</div>
+                    		</div>
+                		</div>
+            	</div>
+        	</section>
         
-        <footer>
-            <div class="full-screen" style="background-color:#fff; height:400px;">
-                <div class="container" style="background-color:#fff; height:400px;">
-                    <table width="100%">
-                        <tr>
-                            <td height="400px" align="center">FOOTER</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </footer>
-    </body>
+        	<footer>
+           		<div class="full-screen" style="background-color:#fff; height:100px;">
+                		<div class="container" style="background-color:#fff; height:100px;">
+                    		<table width="100%">
+                        		<tr>
+                            		<td height="400px" align="center">FOOTER</td>
+                        		</tr>
+                    		</table>
+                		</div>
+            	</div>
+        	</footer>
+    	</body>
 </html>
