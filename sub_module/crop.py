@@ -25,12 +25,14 @@ def crop_white_background(img_gray, Height, Width):
 
 def crop_column_img(line, crop_background_img, start_height, end_height, dst_dir):
 	offset=5
+	names = ['돈', '이', '없', '다', '라', '는', '것']
 
 	file_name='/line' + str(line)
 	start_word = 0
 	for a in range(1,8):
-		crop_img = crop_background_img[start_height : end_height , start_word:start_word+201]
-		cv2.imwrite(dst_dir + file_name + '_' + str(a) + '.jpg', crop_img)
+		crop_img = crop_background_img[start_height : int(end_height) , start_word:start_word+201]
+		# cv2.imwrite(dst_dir + file_name + '_' + str(a) + '.jpg', crop_img)
+		cv2.imwrite(dst_dir + names[a-1] + '.jpg', crop_img)
 		print('Crop Success the '+ str(line) + '번째 라인의' + str(a) + ' word')
 		start_word += 201 + offset
 
@@ -63,7 +65,7 @@ def main():
 		start_height = (line-1) * back_height_offset
 	end_height = start_height + back_height_offset
 
-	crop_line_img = crop_background_img[start_height : end_height, 0 : Width]
+	crop_line_img = crop_background_img[start_height : int(end_height), 0 : Width]
 	cv2.imwrite(dst_dir+'/line'+str(line)+'_total.jpg',crop_line_img)					
 
 	crop_column_img(line, crop_background_img, start_height, end_height, dst_dir)
