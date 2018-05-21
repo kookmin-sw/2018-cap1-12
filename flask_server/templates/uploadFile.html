@@ -20,7 +20,7 @@
                 			<table width="100%">
                 				<tr>
                 					<td align="center">
-                						<img src={{ url_for('static', filename='pictures/'+ filename) }}>
+                						<img src={{ url_for('static', filename='pictures/'+ filename) }} style="max-width: 100%">
                 						<div class="h20"></div>
 								<form action="cutImage" method="post">
 									[ {{ filename }} ]<br>
