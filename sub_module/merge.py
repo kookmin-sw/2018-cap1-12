@@ -24,7 +24,7 @@ if __name__=="__main__":
 	
 	for p1 in paths1:
 		label1 = os.path.basename(p1).split('.')[0]
-		p2 = os.path.join(src_dir2, label1 + '.jpg')
+		p2 = os.path.join(src_dir2, 'space.jpg')
 		
 		try:
 			image1 = cv2.imread(p1)
@@ -38,7 +38,7 @@ if __name__=="__main__":
 			if dst_dir[-1] != '/':
 				dst_dir += '/'
 			vis = np.concatenate((image1, image2), axis=1)
-			cv2.imwrite(str(dst_dir)+label1+'_merge_.jpg',vis)
-			print('Success : ' + str(dst_dir) + label1 + '_merge_.jpg')
+			cv2.imwrite(str(dst_dir)+label1+'.jpg',vis)
+			print('Success : ' + str(dst_dir) + label1 + '.jpg')
 		except:
 			print('Fail : ' + label1 + 'File is not exist in src2_dir')
