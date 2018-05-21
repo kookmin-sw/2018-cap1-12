@@ -273,10 +273,10 @@ class Trainer(object):
         x_AB_path = '{}/{}_x_AB.png'.format(path, idx)
         x_ABA_path = '{}/{}_x_ABA.png'.format(path, idx)
 
-        vutils.save_image(x_AB.data, x_AB_path)
+        vutils.save_image(x_AB.data, x_AB_path, 3)
         print("[*] Samples saved: {}".format(x_AB_path))
 
-        vutils.save_image(x_ABA.data, x_ABA_path)
+        vutils.save_image(x_ABA.data, x_ABA_path,3)
         print("[*] Samples saved: {}".format(x_ABA_path))
 
     def generate_with_B(self, inputs, path, idx=None):
@@ -286,10 +286,10 @@ class Trainer(object):
         x_BA_path = '{}/{}_x_BA.png'.format(path, idx)
         x_BAB_path = '{}/{}_x_BAB.png'.format(path, idx)
 
-        vutils.save_image(x_BA.data, x_BA_path)
+        vutils.save_image(x_BA.data, x_BA_path, 3)
         print("[*] Samples saved: {}".format(x_BA_path))
 
-        vutils.save_image(x_BAB.data, x_BAB_path)
+        vutils.save_image(x_BAB.data, x_BAB_path, 3)
         print("[*] Samples saved: {}".format(x_BAB_path))
 
     def generate_infinitely(self, inputs, path, input_type, count=10, nrow=2, idx=None):
@@ -322,8 +322,8 @@ class Trainer(object):
                 print("[!] Test sample generation finished. Samples are in {}".format(test_dir))
                 break
 
-            vutils.save_image(x_A.data, '{}/{}_x_A.png'.format(test_dir, step))
-            vutils.save_image(x_B.data, '{}/{}_x_B.png'.format(test_dir, step))
+            vutils.save_image(x_A.data, '{}/{}_x_A.png'.format(test_dir, step), 3)
+            vutils.save_image(x_B.data, '{}/{}_x_B.png'.format(test_dir, step), 3)
 
             self.generate_with_A(x_A, test_dir, idx=step)
             self.generate_with_B(x_B, test_dir, idx=step)
