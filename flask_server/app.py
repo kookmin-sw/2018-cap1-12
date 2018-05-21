@@ -71,7 +71,9 @@ def cutImage():
 		print lineNumber
 		print ttfName
 		print filename
-		# os.system("./crop.sh " + lineNumber + " " + ttfName)
+		# 상욱이가 추가한 부분
+		os.system("sh ../crop.sh " + filename + " " + lineNumber + " " + ttfName)
+		# 상욱이가 추가한 부분
 		return redirect(url_for('display_cutImage'))
 
 @app.route('/upload', methods=['GET', 'POST'])
