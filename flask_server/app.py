@@ -61,6 +61,7 @@ def cutImage():
 		print lineNumber
 		print ttfName
 		print filename
+		# os.system("./crop.sh " + lineNumber + " " + ttfName)
 		return redirect(url_for('display_cutImage'))
 
 @app.route('/upload', methods=['GET', 'POST'])
