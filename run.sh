@@ -73,8 +73,20 @@ python sub_module/merge.py --src1 DiscoGAN-pytorch/data/fk_rk/train    --src2 Di
 # cd ${work_dir}/DiscoGAN-pytorch
 # rm *.pyc
 # # rm data/sms_dms/train/*
-# rm -r data/sms_dms/A
+
+# m -r data/sms_dms/A
 # rm -r data/sms_dms/B
+# rm -r data/ehs_eh/A
+# rm -r data/ehs_eh/B
+# rm -r data/djqt_dlT/A
+# rm -r data/djqt_dlT/B
+# rm -r data/ek_EK/A
+# rm -r data/ek_EK/B
+# rm -r data/ek_rh/A
+# rm -r data/ek_rh/B
+# rm -r data/fk_rk/A
+# rm -r data/fk_rk/B
+
 # rm -r logs/sms_dms/test
 # # -- sub_module/svg2ttf/
 # cd ${work_dir}/sub_module/svg2ttf
