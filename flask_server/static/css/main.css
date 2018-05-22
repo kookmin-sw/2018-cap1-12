@@ -18,6 +18,11 @@
 
 .view-team table ul li{padding: 10px 0px;}
 
+.title-underline-container{margin: 40px 0px;}
+.title-underline-long{border-bottom: 3px solid #ddd;}
+.title-underline-short{border-bottom: 2px solid #999;}
+.title-content-center{text-align: center; font-size: 1.6em;}
+
 body header{font-family: 'KimNamyun' !important; font-size: 1.4em;}
 body section{font-family: 'KimNamyun' !important; font-size: 1.4em;}
 body footer{font-family: 'KimNamyun' !important; font-size: 1.4em;}
