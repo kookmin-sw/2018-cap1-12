@@ -1,3 +1,5 @@
+@font-face {font-family: 'KimNamyun'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KimNamyun.woff') format('woff'); font-weight: normal; font-style: normal; }
+
 .fixed-header{position: fixed; top: 0px; z-index: 1000}
 .body-of-fixed-header{margin-top: 100px;}
 .full-screen{width: 100%;}
@@ -15,3 +17,7 @@
 .h20{width: 100%; height: 20px;}
 
 .view-team table ul li{padding: 10px 0px;}
+
+body header{font-family: 'KimNamyun' !important; font-size: 1.4em;}
+body section{font-family: 'KimNamyun' !important; font-size: 1.4em;}
+body footer{font-family: 'KimNamyun' !important; font-size: 1.4em;}
