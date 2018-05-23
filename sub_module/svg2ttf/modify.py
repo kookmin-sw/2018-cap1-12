@@ -138,7 +138,7 @@ def svgs2ttf(svg_set):
     go through hash 'svg_set', read each unicode & svgfile, compine all to one ttf file and return single ttf file
     svg_set is svg filenames
     """
-    DEFAULT_SVG = 'assets/base.svg'
+    DEFAULT_SVG = 'assets/NanumPen.svg'
     FONT_NAME = 'MyFont'
     NEW_SVG = FONT_NAME + ".svg"
     cp_svg(DEFAULT_SVG, NEW_SVG)
