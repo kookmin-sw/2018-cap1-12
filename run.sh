@@ -3,13 +3,28 @@
 # work directory : 2018-cap1-12/
 work_dir=$( cd "$(dirname "$0")" ; pwd )
 
+# init
+cd ${work_dir}/DiscoGAN-pytorch/data
+rm -r sms_dms/A
+rm -r sms_dms/B
+rm -r ehs_eh/A
+rm -r ehs_eh/B
+rm -r djqt_dlT/A
+rm -r djqt_dlT/B
+rm -r ek_EK/A
+rm -r ek_EK/B
+rm -r ek_rh/A
+rm -r ek_rh/B
+rm -r fk_rk/A
+rm -r fk_rk/B
 
+# resize 192x192
+cd ${work_dir}
+python sub_module/resize.py --src user/$1 --resize 192
 
-# resize
+# resize 256x256
 cd ${work_dir}/user/$1
 mogrify -resize 256x256! -quality 100 *.jpg
-
-
 
 # user data move
 cd ${work_dir}
@@ -20,8 +35,6 @@ cp user/$1/다.jpg DiscoGAN-pytorch/data/ek_rh/train/다.jpg
 cp user/$1/는.jpg DiscoGAN-pytorch/data/sms_dms/train/는.jpg
 cp user/$1/라.jpg DiscoGAN-pytorch/data/fk_rk/train/라.jpg
 
-
-
 # merge
 cd ${work_dir}
 python sub_module/merge.py --src1 DiscoGAN-pytorch/data/ehs_eh/train   --src2 DiscoGAN-pytorch/data --dst DiscoGAN-pytorch/data/ehs_eh/train/
@@ -31,65 +44,38 @@ python sub_module/merge.py --src1 DiscoGAN-pytorch/data/ek_rh/train    --src2 Di
 python sub_module/merge.py --src1 DiscoGAN-pytorch/data/sms_dms/train  --src2 DiscoGAN-pytorch/data --dst DiscoGAN-pytorch/data/sms_dms/train/
 python sub_module/merge.py --src1 DiscoGAN-pytorch/data/fk_rk/train    --src2 DiscoGAN-pytorch/data --dst DiscoGAN-pytorch/data/fk_rk/train/
 
+# train
+cd DiscoGAN-pytorch
+python main.py --dataset=ehs_eh --load_path=logs/ehs_eh --is_train=False
+python main.py --dataset=djqt_dlT --load_path=logs/djqt_dlT --is_train=False
+python main.py --dataset=ek_EK --load_path=logs/ek_EK --is_train=False
+python main.py --dataset=ek_rh --load_path=logs/ek_rh --is_train=False
+python main.py --dataset=sms_dms --load_path=logs/sms_dms --is_train=False
+python main.py --dataset=fk_rk --load_path=logs/fk_rk --is_train=False
 
+# move
+cd ${work_dir}
+mv DiscoGAN-pytorch/logs/ehs_eh/test/0_x_A.png    sub_module/svg2ttf/data/B3C8.png # 돈 B3C8
+mv DiscoGAN-pytorch/logs/ehs_eh/test/0_x_AB.png   sub_module/svg2ttf/data/B3C4.png # 도 B3C4
+mv DiscoGAN-pytorch/logs/djqt_dlT/test/0_x_A.png  sub_module/svg2ttf/data/C5C6.png # 없 C5C6
+mv DiscoGAN-pytorch/logs/djqt_dlT/test/0_x_AB.png sub_module/svg2ttf/data/C788.png # 있 C788
+mv DiscoGAN-pytorch/logs/ek_EK/test/0_x_A.png     sub_module/svg2ttf/data/B2E4.png # 다 B2E4
+mv DiscoGAN-pytorch/logs/ek_EK/test/0_x_AB.png    sub_module/svg2ttf/data/B530.png # 따 B530
+mv DiscoGAN-pytorch/logs/ek_rh/test/0_x_AB.png    sub_module/svg2ttf/data/ACE0.png # 고 ACE0
+mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_A.png   sub_module/svg2ttf/data/B294.png # 는 B294
+mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_AB.png  sub_module/svg2ttf/data/C740.png # 은 C740
+mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_A.png     sub_module/svg2ttf/data/B77C.png # 라 B77C
+mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_AB.png    sub_module/svg2ttf/data/AC00.png # 가 AC00
+mv user/$1/이.jpg sub_module/svg2ttf/data/C774.png # 이 C774
+mv user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
 
-# # train
-# cd DiscoGAN-pytorch
-# python main.py --dataset=ehs_eh --load_path=logs/ehs_eh --is_train=False
-# python main.py --dataset=djqt_dlT --load_path=logs/djqt_dlT --is_train=False
-# python main.py --dataset=ek_EK --load_path=logs/ek_EK --is_train=False
-# python main.py --dataset=ek_rh --load_path=logs/ek_rh --is_train=False
-# python main.py --dataset=sms_dms --load_path=logs/sms_dms --is_train=False
-# python main.py --dataset=fk_rk --load_path=logs/fk_rk --is_train=False
+# make font
+cd ${work_dir}/sub_module/svg2ttf
+python3 main.py
 
-
-
-# # Move
-# cd ${work_dir}
-# mv DiscoGAN-pytorch/logs/ehs_eh/test/0_x_A.png    sub_module/svg2ttf/data/B3C8.png # 돈 B3C8
-# mv DiscoGAN-pytorch/logs/ehs_eh/test/0_x_AB.png   sub_module/svg2ttf/data/B3C4.png # 도 B3C4
-# mv DiscoGAN-pytorch/logs/djqt_dlT/test/0_x_A.png  sub_module/svg2ttf/data/C5C6.png # 없 C5C6
-# mv DiscoGAN-pytorch/logs/djqt_dlT/test/0_x_AB.png sub_module/svg2ttf/data/C788.png # 있 C788
-# mv DiscoGAN-pytorch/logs/ek_EK/test/0_x_A.png     sub_module/svg2ttf/data/B2E4.png # 다 B2E4
-# mv DiscoGAN-pytorch/logs/ek_EK/test/0_x_AB.png    sub_module/svg2ttf/data/B530.png # 따 B530
-# mv DiscoGAN-pytorch/logs/ek_rh/test/0_x_AB.png    sub_module/svg2ttf/data/ACE0.png # 고 ACE0
-# mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_A.png   sub_module/svg2ttf/data/B294.png # 는 B294
-# mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_AB.png  sub_module/svg2ttf/data/C740.png # 은 C740
-# mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_A.png     sub_module/svg2ttf/data/B77C.png # 라 B77C
-# mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_AB.png    sub_module/svg2ttf/data/AC00.png # 가 AC00
-# mv user/$1/이.jpg sub_module/svg2ttf/data/C774.png # 이 C774
-# mv user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
-
-
-
-# # Make Font
-# cd ${work_dir}/sub_module/svg2ttf
-# python3 main.py
-
-
-
-# # Delete Trash File
-# # -- DiscoGAN-pytorch/
-# cd ${work_dir}/DiscoGAN-pytorch
-# rm *.pyc
-# # rm data/sms_dms/train/*
-
-# m -r data/sms_dms/A
-# rm -r data/sms_dms/B
-# rm -r data/ehs_eh/A
-# rm -r data/ehs_eh/B
-# rm -r data/djqt_dlT/A
-# rm -r data/djqt_dlT/B
-# rm -r data/ek_EK/A
-# rm -r data/ek_EK/B
-# rm -r data/ek_rh/A
-# rm -r data/ek_rh/B
-# rm -r data/fk_rk/A
-# rm -r data/fk_rk/B
-
-# rm -r logs/sms_dms/test
-# # -- sub_module/svg2ttf/
-# cd ${work_dir}/sub_module/svg2ttf
-# rm -r __pycache__
-# rm -r tmp
-# rm data/*
+# move font & delete font remain file
+cd ${work_dir}
+mv sub_module/svg2ttf/MyFont.ttf user/$1
+rm sub_module/svg2ttf/MyFont.svg
+rm sub_module/data/*
+rm -r sub_module/svg2ttf/tmp
