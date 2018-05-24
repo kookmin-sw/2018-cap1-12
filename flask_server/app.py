@@ -15,6 +15,7 @@ sys.setdefaultencoding('utf-8')
 
 UPLOAD_FOLDER = 'static/pictures/'			#업로드된 파일이 저장되는 곳
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])	#허용할 파일 확장자
+ALLOWED_FONT_EXTENSIONS = ['ttf', 'otf']
 
 app = Flask(__name__)
 
@@ -22,6 +23,11 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 font_dir = "static/fonts"
 tt = os.walk(font_dir).next()[2]
+font_files = []
+for i in tt:
+	extension = i.split('.')[1]
+	if extension in ALLOWED_FONT_EXTENSIONS:
+		font_files.append(i)
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -34,7 +40,7 @@ def index():
 
 @app.route('/list')
 def list():
-	return render_template('list.html', tt=tt)
+	return render_template('list.html', tt=font_files)
 
 @app.route('/use')
 def use():
