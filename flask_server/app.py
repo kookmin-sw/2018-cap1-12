@@ -55,6 +55,18 @@ def text(fontname):
 	else:
 		return render_template('text.html', fontname = fontname)
 
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+	uploaded_files = request.files.getlist('profile[]')
+	filenames = []
+	if request.method == 'POST':
+		for file in uploaded_files:
+			if file and allowed_file(file.filename):
+				filename = secure_filename(file.filename)	#파일명 보호
+				file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+				filenames.append(filename)
+		return redirect(url_for("uploadFile", filename=filename))
+
 @app.route('/uploadFile/<filename>')
 def uploadFile(filename):
 	if filename == 'header':
@@ -63,10 +75,6 @@ def uploadFile(filename):
 		return render_template('footer.html')
 	else:
 		return render_template('uploadFile.html', filename=filename)
-
-@app.route('/display')
-def display_cutImage():
-	return render_template('cutImage.html')
 
 @app.route('/uploadFile/cutImage', methods=['GET', 'POST'])
 def cutImage():
@@ -80,19 +88,23 @@ def cutImage():
 		# 상욱이가 추가한 부분
 		os.system("sh ../crop.sh " + filename + " " + lineNumber + " " + ttfName)
 		# 상욱이가 추가한 부분
-		return redirect(url_for('display_cutImage'))
+		return redirect(url_for('display_cutImage', ttfName=ttfName))
 
-@app.route('/upload', methods=['GET', 'POST'])
-def upload():
-	uploaded_files = request.files.getlist('profile[]')
-	filenames = []
+@app.route('/display/<ttfName>')
+def display_cutImage(ttfName):
+	if ttfName == 'header':
+		return render_template('header.html')
+	elif ttfName == 'footer':
+		return render_template('footer.html')
+	else:
+		return render_template('cutImage.html', ttfName=ttfName)
+
+@app.route('/display/makeFont', methods=['GET', 'POST'])
+def makeFont():
 	if request.method == 'POST':
-		for file in uploaded_files:
-			if file and allowed_file(file.filename):
-				filename = secure_filename(file.filename)	#파일명 보호
-				file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-				filenames.append(filename)
-		return redirect(url_for("uploadFile", filename=filename))
+		ttfName = request.form['ttfName']
+		#os.system("sh ../run.sh " + ttfName)
+		return redirect(url_for('list'))
 
 @app.route('/header')
 def header():
