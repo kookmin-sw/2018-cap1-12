@@ -103,7 +103,7 @@ def display_cutImage(ttfName):
 def makeFont():
 	if request.method == 'POST':
 		ttfName = request.form['ttfName']
-		#os.system("sh ../run.sh " + ttfName)
+		os.system("sh ../run.sh " + ttfName)
 		return redirect(url_for('list'))
 
 @app.route('/header')
@@ -115,4 +115,4 @@ def footer():
 	return render_template('footer.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug = True)
+    app.run(host='0.0.0.0', port=1024, debug = True)

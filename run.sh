@@ -26,6 +26,10 @@ python sub_module/resize.py --src user/$1 --resize 192
 cd ${work_dir}/user/$1
 mogrify -resize 256x256! -quality 100 *.jpg
 
+# erosion 2
+cd ${work_dir}
+python sub_module/erosion.py --src user/$1 --num 1
+
 # user data move
 cd ${work_dir}
 cp user/$1/돈.jpg DiscoGAN-pytorch/data/ehs_eh/train/돈.jpg
@@ -76,7 +80,8 @@ echo 'make font success!!'
 
 # move font & delete font remain file
 cd ${work_dir}
-mv sub_module/svg2ttf/MyFont.ttf user/$1
+mv sub_module/svg2ttf/MyFont.ttf user/$1/$1.ttf
+cp user/$1/$1.ttf flask_server/static/fonts
 rm sub_module/svg2ttf/MyFont.svg
 rm sub_module/data/*
 rm -r sub_module/svg2ttf/tmp
