@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
       <script type="text/javascript" src={{ url_for('static', filename='js/common.js') }}></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<style type="text/css">
 		@font-face{
 			font-family:'userFont';
@@ -15,6 +16,22 @@
 	</style>
 </head>
 <body>
+<script>
+  $("#ex_input").ready(function(){
+    $("#ex_input").keyup(function(){
+      var str = $("#ex_input").val();
+      $("#text-content").html(str);
+    });
+  });
+
+  $("#font-size-select").ready(function(){
+    $("#font-size-select").change(function(){
+      var font_size = $("#font-size-select").val();
+      $("#text-content").css({'font-size' : font_size});
+    });
+  });
+</script>
+
 	<header w3-include-html="header"></header>
       <script>includeHTML();</script>
 
@@ -25,7 +42,14 @@
                         	<tr>
                             	<td align="center">
                             		<p style="font-family:userFont;">{{ fontname }} 적용 글꼴</p>
-
+<label for="font-size-select"></label>
+                          <select id="font-size-select" style="margin-bottom: 10px;">
+                            <option value="8">8px</option>
+                            <option value="16">16px</option>
+                            <option value="32">32px</option>
+                            <option value="64">64px</option>
+                            <option value="128" selected="selected">128px</option>
+                          </select>
                             		<div class="textbox">
 								<label for="ex_input"></label>
 								<input type="text" id="ex_input" hight = 100 style="font-family:userFont;" placeholder="">
@@ -33,6 +57,14 @@
                             	</td>
                       	 	</tr>
                      	</table>
+
+                      <div class="h20"></div>
+
+                      <div class="row">
+                        <div class="col-12"  style="font-family:userFont; text-align: center;" id="text-content">
+                          
+                        </div>
+                      </div>
                  </div>
         	</div>
      	</section>
