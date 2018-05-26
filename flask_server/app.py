@@ -110,12 +110,18 @@ def display_cutImage(ttfName):
 	else:
 		return render_template('cutImage.html', ttfName=ttfName)
 
+
 @app.route('/display/makeFont', methods=['GET', 'POST'])
 def makeFont():
 	if request.method == 'POST':
 		ttfName = request.form['ttfName']
 		os.system("sh ../run.sh " + ttfName)
 		return redirect(url_for('list'))
+
+@app.route('/text/<fontname>/deleteFont')
+def deleteFont(fontname):
+	os.remove(font_dir + '/' + fontname)
+	return redirect(url_for('list'))
 
 @app.route('/header')
 def header():

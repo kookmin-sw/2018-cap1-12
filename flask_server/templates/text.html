@@ -30,6 +30,16 @@
       $("#text-content").css({'font-size' : font_size});
     });
   });
+
+  $("#delete-form").ready(function(){
+  	$("#delete-form").submit(function(){
+  		if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+    		return true;
+		}else{   //취소
+    		return false;
+		}
+  	});
+  });
 </script>
 
 	<header w3-include-html="header"></header>
@@ -41,8 +51,8 @@
                     	<table width="100%">
                         	<tr>
                             	<td align="center">
-                            		<p style="font-family:userFont;">{{ fontname }} 적용 글꼴</p>
-<label for="font-size-select"></label>
+                            		<p style="font-family:userFont;">{{ fontname }} 적용 글꼴
+							<label for="font-size-select"></label>
                           <select id="font-size-select" style="margin-bottom: 10px;">
                             <option value="8">8px</option>
                             <option value="16">16px</option>
@@ -66,6 +76,14 @@
                         </div>
                       </div>
                  </div>
+        	</div>
+
+        	<div class="row">
+        		<div class="col-12" style="text-align: center;">
+        			<form action="{{ fontname }}/deleteFont" method="get" id="delete-form">
+                           <input type="submit" value="삭제"></p>
+                     </form>
+        		</div>
         	</div>
      	</section>
 
