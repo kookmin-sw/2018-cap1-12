@@ -24,17 +24,18 @@ def crop_white_background(img_gray, Height, Width):
 	return crop_background_img
 
 def crop_column_img(line, crop_background_img, start_height, end_height, dst_dir):
-	offset=5
 	names = ['돈', '이', '없', '다', '라', '는', '것']
 
 	file_name='/line' + str(line)
 	start_word = 0
+	back_Height, back_Width = crop_background_img.shape
+	back_width_offset = back_Width / 7
 	for a in range(1,8):
-		crop_img = crop_background_img[int(start_height) : int(end_height) , start_word:start_word+201]
+		crop_img = crop_background_img[int(start_height) : int(end_height) , start_word:start_word+back_width_offset]
 		# cv2.imwrite(dst_dir + file_name + '_' + str(a) + '.jpg', crop_img)
 		cv2.imwrite(dst_dir + names[a-1] + '.jpg', crop_img)
 		print('Crop Success the '+ str(line) + '번째 라인의' + str(a) + ' word')
-		start_word += 201 + offset
+		start_word += back_width_offset
 
 
 
