@@ -26,7 +26,7 @@ font_dir = "static/fonts"
 def getfiles(fontDir):
     file_list = [s for s in os.listdir(fontDir)
          if os.path.isfile(os.path.join(fontDir, s))]
-    file_list.sort(key=lambda s: os.path.getmtime(os.path.join(fontDir, s)))
+    file_list.sort(key=lambda s: os.path.getmtime(os.path.join(fontDir, s)), reverse = True)
     return file_list
 
 def loadFile(fontDir):
