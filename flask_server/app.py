@@ -20,14 +20,17 @@ ALLOWED_FONT_EXTENSIONS = ['ttf', 'otf']
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 font_dir = "static/fonts"
-tt = os.walk(font_dir).next()[2]
-font_files = []
-for i in tt:
-	extension = i.split('.')[1]
-	if extension in ALLOWED_FONT_EXTENSIONS:
-		font_files.append(i)
+
+
+def loadFile(fontDir):
+	tt = os.walk(fontDir).next()[2]
+	fontFiles = []
+	for i in tt:
+		extension = i.split('.')[1]
+		if extension in ALLOWED_FONT_EXTENSIONS:
+			fontFiles.append(i)
+	return fontFiles
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -40,6 +43,7 @@ def index():
 
 @app.route('/list')
 def list():
+	font_files = loadFile(font_dir)
 	return render_template('list.html', tt=font_files)
 
 @app.route('/use')
