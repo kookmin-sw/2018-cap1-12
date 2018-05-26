@@ -23,14 +23,21 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 font_dir = "static/fonts"
 
 
+def getfiles(fontDir):
+    file_list = [s for s in os.listdir(fontDir)
+         if os.path.isfile(os.path.join(fontDir, s))]
+    file_list.sort(key=lambda s: os.path.getmtime(os.path.join(fontDir, s)))
+    return file_list
+
 def loadFile(fontDir):
-	tt = os.walk(fontDir).next()[2]
-	fontFiles = []
-	for i in tt:
+	file_list = getfiles(font_dir)
+	print file_list
+	font_files = []
+	for i in file_list:
 		extension = i.split('.')[1]
 		if extension in ALLOWED_FONT_EXTENSIONS:
-			fontFiles.append(i)
-	return fontFiles
+			font_files.append(i)
+	return font_files
 
 def allowed_file(filename):
     return '.' in filename and \
