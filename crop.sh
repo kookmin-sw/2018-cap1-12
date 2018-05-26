@@ -5,7 +5,7 @@ work_dir=$( cd "$(dirname "$0")" ; pwd )
 
 # crop
 cd ${work_dir}
-python3 sub_module/crop.py --src flask_server/static/pictures/$1 --dst flask_server/static/cutImage/ --line $2
+python sub_module/crop.py --src flask_server/static/pictures/$1 --dst flask_server/static/cutImage/ --line $2
 
 # copy to user
 mkdir user
