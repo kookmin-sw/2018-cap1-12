@@ -48,8 +48,11 @@
                         </colgroup>
                         {% for fontfile in tt %}
                             {% set fontname = fontfile.split('.')[0] %}
-                            {% if loop.index % 4 == 0 %}
+                            {{loop.index}}
+                            {% if loop.index % 3 == 1 %}
                                 <tr>
+                            
+                            
                             {% endif %}
                                 <td><a href="text/{{ fontfile }}"><img src={{ url_for('static', filename='image/logo.png') }} width="100%"><br><div style="margin-top: 10px;">{{ fontname }}</div></a></td>
                             {% if loop.index % 3 == 0 %}
