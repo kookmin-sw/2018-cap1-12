@@ -8,6 +8,9 @@ outputs
 # ipython checkpoints
 .ipynb_checkpoints
 
+# Log
+logs
+
 # ETC
 paper.pdf
 
