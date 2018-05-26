@@ -5,18 +5,18 @@ work_dir=$( cd "$(dirname "$0")" ; pwd )
 
 # init
 cd ${work_dir}/DiscoGAN-pytorch/data
-rm -r sms_dms/A
-rm -r sms_dms/B
-rm -r ehs_eh/A
-rm -r ehs_eh/B
-rm -r djqt_dlT/A
-rm -r djqt_dlT/B
-rm -r ek_EK/A
-rm -r ek_EK/B
-rm -r ek_rh/A
-rm -r ek_rh/B
-rm -r fk_rk/A
-rm -r fk_rk/B
+sudo rm -r sms_dms/A
+sudo rm -r sms_dms/B
+sudo rm -r ehs_eh/A
+sudo rm -r ehs_eh/B
+sudo rm -r djqt_dlT/A
+sudo rm -r djqt_dlT/B
+sudo rm -r ek_EK/A
+sudo rm -r ek_EK/B
+sudo rm -r ek_rh/A
+sudo rm -r ek_rh/B
+sudo rm -r fk_rk/A
+sudo rm -r fk_rk/B
 
 # resize 192x192
 cd ${work_dir}
@@ -25,6 +25,10 @@ python sub_module/resize.py --src user/$1 --resize 192
 # resize 256x256
 cd ${work_dir}/user/$1
 mogrify -resize 256x256! -quality 100 *.jpg
+
+# dilation 1
+cd ${work_dir}
+python sub_module/dilation.py --src user/$1 --num 1
 
 # erosion 2
 cd ${work_dir}
@@ -59,19 +63,19 @@ python main.py --dataset=fk_rk --load_path=logs/fk_rk --is_train=False
 
 # move
 cd ${work_dir}
-mv DiscoGAN-pytorch/logs/ehs_eh/test/0_x_A.png    sub_module/svg2ttf/data/B3C8.png # 돈 B3C8
-mv DiscoGAN-pytorch/logs/ehs_eh/test/0_x_AB.png   sub_module/svg2ttf/data/B3C4.png # 도 B3C4
-mv DiscoGAN-pytorch/logs/djqt_dlT/test/0_x_A.png  sub_module/svg2ttf/data/C5C6.png # 없 C5C6
-mv DiscoGAN-pytorch/logs/djqt_dlT/test/0_x_AB.png sub_module/svg2ttf/data/C788.png # 있 C788
-mv DiscoGAN-pytorch/logs/ek_EK/test/0_x_A.png     sub_module/svg2ttf/data/B2E4.png # 다 B2E4
-mv DiscoGAN-pytorch/logs/ek_EK/test/0_x_AB.png    sub_module/svg2ttf/data/B530.png # 따 B530
-mv DiscoGAN-pytorch/logs/ek_rh/test/0_x_AB.png    sub_module/svg2ttf/data/ACE0.png # 고 ACE0
-mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_A.png   sub_module/svg2ttf/data/B294.png # 는 B294
-mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_AB.png  sub_module/svg2ttf/data/C740.png # 은 C740
-mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_A.png     sub_module/svg2ttf/data/B77C.png # 라 B77C
-mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_AB.png    sub_module/svg2ttf/data/AC00.png # 가 AC00
-mv user/$1/이.jpg sub_module/svg2ttf/data/C774.png # 이 C774
-mv user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
+sudo mv DiscoGAN-pytorch/logs/ehs_eh/test/0_x_A.png    sub_module/svg2ttf/data/B3C8.png # 돈 B3C8
+sudo mv DiscoGAN-pytorch/logs/ehs_eh/test/0_x_AB.png   sub_module/svg2ttf/data/B3C4.png # 도 B3C4
+sudo mv DiscoGAN-pytorch/logs/djqt_dlT/test/0_x_A.png  sub_module/svg2ttf/data/C5C6.png # 없 C5C6
+sudo mv DiscoGAN-pytorch/logs/djqt_dlT/test/0_x_AB.png sub_module/svg2ttf/data/C788.png # 있 C788
+sudo mv DiscoGAN-pytorch/logs/ek_EK/test/0_x_A.png     sub_module/svg2ttf/data/B2E4.png # 다 B2E4
+sudo mv DiscoGAN-pytorch/logs/ek_EK/test/0_x_AB.png    sub_module/svg2ttf/data/B530.png # 따 B530
+sudo mv DiscoGAN-pytorch/logs/ek_rh/test/0_x_AB.png    sub_module/svg2ttf/data/ACE0.png # 고 ACE0
+sudo mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_A.png   sub_module/svg2ttf/data/B294.png # 는 B294
+sudo mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_AB.png  sub_module/svg2ttf/data/C740.png # 은 C740
+sudo mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_A.png     sub_module/svg2ttf/data/B77C.png # 라 B77C
+sudo mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_AB.png    sub_module/svg2ttf/data/AC00.png # 가 AC00
+sudo mv user/$1/이.jpg sub_module/svg2ttf/data/C774.png # 이 C774
+sudo mv user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
 
 # make font
 cd ${work_dir}/sub_module/svg2ttf
@@ -80,8 +84,8 @@ echo 'make font success!!'
 
 # move font & delete font remain file
 cd ${work_dir}
-mv sub_module/svg2ttf/MyFont.ttf user/$1/$1.ttf
+sudo mv sub_module/svg2ttf/MyFont.ttf user/$1/$1.ttf
 cp user/$1/$1.ttf flask_server/static/fonts
-rm sub_module/svg2ttf/MyFont.svg
-rm sub_module/data/*
-rm -r sub_module/svg2ttf/tmp
+sudo rm sub_module/svg2ttf/MyFont.svg
+sudo rm sub_module/data/*
+sudo rm -r sub_module/svg2ttf/tmp
