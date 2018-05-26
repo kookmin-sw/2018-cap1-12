@@ -48,7 +48,6 @@
                         </colgroup>
                         {% for fontfile in tt %}
                             {% set fontname = fontfile.split('.')[0] %}
-                            {{loop.index}}
                             {% if loop.index % 3 == 1 %}
                                 <tr>
                             
