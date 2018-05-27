@@ -77,6 +77,9 @@ sudo mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_AB.png    sub_module/svg2ttf/data/A
 sudo mv user/$1/이.jpg sub_module/svg2ttf/data/C774.png # 이 C774
 sudo mv user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
 
+# denoise
+python sub_module/denoise.py --src=sub_module/svg2ttf/data --dst=sub_module/svg2ttf/data
+
 # make font
 cd ${work_dir}/sub_module/svg2ttf
 python3 main.py
