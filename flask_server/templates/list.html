@@ -47,13 +47,13 @@
                             <col width="33.3%">
                         </colgroup>
                         {% for fontfile in tt %}
-                        	{% set fontname = fontfile.split('.')[0] %}
-                        	<style type="text/css">
-						@font-face{
-							font-family: {{ fontname }};
-							src:url({{ url_for('static', filename='fonts/'+fontfile) }});
-						}
-					</style>
+                            {% set fontname = fontfile.split('.')[0] %}
+                            <style type="text/css">
+                        @font-face{
+                            font-family: {{ fontname }};
+                            src:url({{ url_for('static', filename='fonts/'+fontfile) }}?number={{ (range(1, 101) | random) }});
+                        }
+                    </style>
                             {% if loop.index % 3 == 1 %}
                                 <tr>
                             {% endif %}

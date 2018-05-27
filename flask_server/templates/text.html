@@ -11,7 +11,7 @@
 	<style type="text/css">
 		@font-face{
 			font-family:'userFont';
-			src:url({{ url_for('static', filename='fonts/'+fontname) }});
+			src:url({{ url_for('static', filename='fonts/'+fontname) }}?number={{ (range(1, 101) | random) }});
 		}
 	</style>
 </head>
