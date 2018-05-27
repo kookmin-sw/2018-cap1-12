@@ -32,7 +32,7 @@ python sub_module/dilation.py --src user/$1 --num 1
 
 # erosion 2
 cd ${work_dir}
-python sub_module/erosion.py --src user/$1 --num 2
+python sub_module/erosion.py --src user/$1 --num 1
 
 # user data move
 cd ${work_dir}
@@ -81,7 +81,7 @@ sudo cp user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
 python sub_module/denoise.py --src=sub_module/svg2ttf/data --dst=sub_module/svg2ttf/data
 
 # dilation
-python sub_module/dilation.py --src sub_module/svg2ttf/data  --num 1 --extension=png
+#python sub_module/dilation.py --src sub_module/svg2ttf/data  --num 1 --extension=png
 
 # make font
 cd ${work_dir}/sub_module/svg2ttf
