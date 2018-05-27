@@ -80,6 +80,9 @@ sudo mv user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
 # denoise
 python sub_module/denoise.py --src=sub_module/svg2ttf/data --dst=sub_module/svg2ttf/data
 
+# dilation
+python sub_module/dilation.py --src sub_module/svg2ttf/data  --num 1 --extension=png
+
 # make font
 cd ${work_dir}/sub_module/svg2ttf
 python3 main.py
