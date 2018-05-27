@@ -23,6 +23,23 @@
 
                     $('#makeFont').submit(function(){
                         $('#loading').show();
+
+                        var loadingImgLeft = ($(window).width() - $('#loading img').width()) / 2;
+                        $('#loading img').css('left', loadingImgLeft);
+                        var loadingContentLeft = ($(window).width() - $('#loading p').width()) / 2;
+                        var loadingContentTop = $(window).height() / 2 + $('#loading img').height() + 20;
+                        $('#loading p').css('left', loadingContentLeft);
+                        $('#loading p').css('top', loadingContentTop);
+
+                        $(window).resize(function(){
+                            var loadingImgLeft = ($(window).width() - $('#loading img').width()) / 2;
+                            $('#loading img').css('left', loadingImgLeft);
+                            var loadingContentLeft = ($(window).width() - $('#loading p').width()) / 2;
+                            var loadingContentTop = $(window).height() / 2 + $('#loading img').height() + 20;
+                            $('#loading p').css('left', loadingContentLeft);
+                            $('#loading p').css('top', loadingContentTop);
+                        });
+
                         return true;
                     });
                 });
@@ -30,6 +47,7 @@
 
             <div id="loading">
                 <img src={{ url_for('static', filename='image/cutImage/loading.gif') }} alt="loading">
+                <p>폰트 생성중 ...</p>
             </div>
 
         	<header w3-include-html="header"></header>
