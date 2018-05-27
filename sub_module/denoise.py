@@ -35,8 +35,8 @@ if __name__=="__main__":
 			median_dst=cv2.merge([r,g,b])
 			median = median_dst
 
-			cv2.imwrite(str(dst_dir) + label + '.jpg', median)
-			print('Success : Denoise' + str(dst_dir) + label + '.jpg')
+			cv2.imwrite(str(dst_dir) + label + '.png', median)
+			print('Success : Denoise ' + str(dst_dir) + label + '.png')
 		except:
 			print('Fail')
 
