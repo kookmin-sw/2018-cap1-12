@@ -32,7 +32,7 @@ python sub_module/dilation.py --src user/$1 --num 1
 
 # erosion 2
 cd ${work_dir}
-python sub_module/erosion.py --src user/$1 --num 1
+python sub_module/erosion.py --src user/$1 --num 2
 
 # user data move
 cd ${work_dir}
