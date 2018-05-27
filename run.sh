@@ -74,8 +74,8 @@ sudo mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_A.png   sub_module/svg2ttf/data/B
 sudo mv DiscoGAN-pytorch/logs/sms_dms/test/0_x_AB.png  sub_module/svg2ttf/data/C740.png # 은 C740
 sudo mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_A.png     sub_module/svg2ttf/data/B77C.png # 라 B77C
 sudo mv DiscoGAN-pytorch/logs/fk_rk/test/0_x_AB.png    sub_module/svg2ttf/data/AC00.png # 가 AC00
-sudo mv user/$1/이.jpg sub_module/svg2ttf/data/C774.png # 이 C774
-sudo mv user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
+sudo cp user/$1/이.jpg sub_module/svg2ttf/data/C774.png # 이 C774
+sudo cp user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
 
 # denoise
 python sub_module/denoise.py --src=sub_module/svg2ttf/data --dst=sub_module/svg2ttf/data
