@@ -30,6 +30,18 @@
                         }
                     });
                 });
+
+                $("#fileName").ready(function(){
+                    $("#fileName").keyup(function(){
+                        regexp = /[^0-9]/gi;
+                        v = $(this).val();
+
+                        if(v.length == 1 && !regexp.test(v)){
+                            alert("이름의 처음은 숫자가 아니어야 합니다.");
+                            $(this).val("");
+                        }
+                    });
+                });
             </script>
 
     	  	<header w3-include-html="header"></header>
@@ -75,7 +87,7 @@
 										</tr>
 										<tr>
 											<td align="center" style="padding: 5px;">생성 파일 이름</td>
-											<td style="padding: 5px;"><input type="text" name="ttfName" placeholder="최종 생성파일의 이름을 적어주세요" size="30" style="padding: 2px;"><br></td>
+											<td style="padding: 5px;"><input type="text" name="ttfName" placeholder="최종 생성파일의 이름을 적어주세요" size="30" style="padding: 2px;" id="fileName"><br></td>
 										</tr>
 									</table>
 									<div class="h20"></div>
