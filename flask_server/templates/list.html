@@ -47,13 +47,18 @@
                             <col width="33.3%">
                         </colgroup>
                         {% for fontfile in tt %}
-                            {% set fontname = fontfile.split('.')[0] %}
+                        	{% set fontname = fontfile.split('.')[0] %}
+                        	<style type="text/css">
+						@font-face{
+							font-family: {{ fontname }};
+							src:url({{ url_for('static', filename='fonts/'+fontfile) }});
+						}
+					</style>
                             {% if loop.index % 3 == 1 %}
                                 <tr>
-                            
-                            
                             {% endif %}
-                                <td><a href="text/{{ fontfile }}"><img src={{ url_for('static', filename='image/logo.png') }} width="100%"><br><div style="margin-top: 10px;">{{ fontname }}</div></a></td>
+                                <!-- <td><a href="text/{{ fontfile }}"><img src={{ url_for('static', filename='image/logo.png') }} width="100%"><br><div style="margin-top: 10px;">{{ fontname }}</div></a></td> -->
+                                <td><a href="text/{{ fontfile }}"><div style="font-family: {{ fontname }}; font-size: 1.8em; background-image: url({{ url_for('static', filename='image/list/background.jpeg') }}); background-size: 100% 100%; padding-bottom: 50px; padding-top: 20px;">돈이라는 것은<br>있다가도 없고<br>이따가도 없고</div><div style="margin-top: 10px;">{{ fontname }}</div></a></td>
                             {% if loop.index % 3 == 0 %}
                                 </tr>
                             {% endif %}
