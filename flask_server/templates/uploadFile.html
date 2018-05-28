@@ -32,13 +32,13 @@
                 });
 
                 $("#fileName").ready(function(){
-                    $("#fileName").keyup(function(){
-                        regexp = /[^0-9]/gi;
+                    $("#fileName").keypress(function(e){
+                        var keyID = (e.which) ? e.which : e.keyCode;
                         v = $(this).val();
 
-                        if(v.length == 1 && !regexp.test(v)){
+                        if(v.length == 0 && ( keyID >=48 && keyID <= 57 )){
                             alert("이름의 처음은 숫자가 아니어야 합니다.");
-                            $(this).val("");
+                            return false;
                         }
                     });
                 });
