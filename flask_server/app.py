@@ -14,13 +14,15 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 UPLOAD_FOLDER = 'static/pictures/'			#업로드된 파일이 저장되는 곳
+FONT_FOLDER = 'static/fonts'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])	#허용할 파일 확장자
 ALLOWED_FONT_EXTENSIONS = ['ttf', 'otf']
 
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-font_dir = "static/fonts"
+app.config['FONT_FOLDER'] = FONT_FOLDER
+
 
 
 def getfiles(fontDir):
@@ -30,7 +32,7 @@ def getfiles(fontDir):
     return file_list
 
 def loadFile(fontDir):
-	file_list = getfiles(font_dir)
+	file_list = getfiles(FONT_FOLDER)
 	print file_list
 	font_files = []
 	for i in file_list:
@@ -50,7 +52,7 @@ def index():
 
 @app.route('/list')
 def list():
-	font_files = loadFile(font_dir)
+	font_files = loadFile(FONT_FOLDER)
 	return render_template('list.html', tt=font_files)
 
 @app.route('/use')
@@ -120,12 +122,12 @@ def makeFont():
 
 @app.route('/text/<fontname>/deleteFont')
 def deleteFont(fontname):
-	os.remove(font_dir + '/' + fontname)
+	os.remove(FONT_FOLDER + '/' + fontname)
 	return redirect(url_for('list'))
 
-@app.route('/text/<fontname>/download_font',methods=['GET'])
+@app.route('/text/<fontname>/downLoadFont',methods=['GET'])
 def downLoad(fontname):
-    return send_from_directory(directory=font_dir, filename=fontname, as_attachment=True)
+    return send_from_directory(app.config['FONT_FOLDER'], filename=fontname, as_attachment=True)
 
 @app.route('/header')
 def header():

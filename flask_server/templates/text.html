@@ -41,6 +41,16 @@
 		}
   	});
   });
+
+  $("#download-form").ready(function(){
+  	$("#download-form").submit(function(){
+  		if (confirm("정말 다운로드하시겠습니까??") == true){    //확인
+    		return true;
+		}else{   //취소
+    		return false;
+		}
+  	});
+  });
 </script>
 
 	<header w3-include-html="header"></header>
@@ -82,7 +92,10 @@
 
         	<div class="row">
         		<div class="col-12" style="text-align: center;">
-        			<form action="{{ fontname }}/deleteFont" method="get" id="delete-form">
+                     <form action="{{ fontname }}/downLoadFont" method="get" id="download-form" style="display: inline-block;">
+                           <input type="submit" value="다운로드"></p>
+                     </form>
+                     <form action="{{ fontname }}/deleteFont" method="get" id="delete-form" style="display: inline-block;">
                            <input type="submit" value="삭제"></p>
                      </form>
         		</div>
