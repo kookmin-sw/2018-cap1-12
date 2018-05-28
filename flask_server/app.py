@@ -123,6 +123,10 @@ def deleteFont(fontname):
 	os.remove(font_dir + '/' + fontname)
 	return redirect(url_for('list'))
 
+@app.route('/text/<fontname>/download_font',methods=['GET'])
+def downLoad(fontname):
+    return send_from_directory(directory=font_dir, filename=fontname, as_attachment=True)
+
 @app.route('/header')
 def header():
 	return render_template('header.html')
@@ -132,5 +136,5 @@ def footer():
 	return render_template('footer.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=1024, debug = True, processes=8)
+    app.run(host='0.0.0.0', port=1024, debug = True, threaded=True)
     
