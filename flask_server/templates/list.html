@@ -25,10 +25,6 @@
                         var fontName = $(this).attr('id').substring(10, $(this).attr('id').length);
 
                         html2canvas(document.getElementById("captureDiv"+fontName)).then(function(canvas) {
-                            document.body.appendChild(canvas);
-                            var captureImg = canvas.toDataURL();
-                            console.log(captureImg);
-
                             canvas.toBlob(function(blob) {
                                 saveAs(blob, fontName+".png"); 
                             });
