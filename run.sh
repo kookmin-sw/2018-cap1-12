@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # work directory : 2018-cap1-12/
 work_dir=$( cd "$(dirname "$0")" ; pwd )
 
@@ -18,21 +17,32 @@ sudo rm -r ek_rh/B
 sudo rm -r fk_rk/A
 sudo rm -r fk_rk/B
 
-# resize 192x192
-cd ${work_dir}
-python sub_module/resize.py --src user/$1 --resize 192
-
-# resize 256x256
+# 2018-cap1-12/user/'username'
 cd ${work_dir}/user/$1
+
+# original image
+mkdir original
+cp *.jpg original
+
+# resize 192x192
+python ../../sub_module/resize.py --src . --resize 192
+mkdir resize
+cp *.jpg resize
+
+# mogrify 256x256
 mogrify -resize 256x256! -quality 100 *.jpg
+mkdir mogrify
+cp *.jpg mogrify
 
 # dilation 1
-cd ${work_dir}
-python sub_module/dilation.py --src user/$1 --num 1
+python ../../sub_module/dilation.py --src . --num 1
+mkdir dilation
+cp *.jpg dilation
 
-# erosion 2
-cd ${work_dir}
-python sub_module/erosion.py --src user/$1 --num 1
+# erosion 1
+python ../../sub_module/erosion.py --src . --num 1
+mkdir erosion
+cp *.jpg erosion
 
 # user data move
 cd ${work_dir}
@@ -53,7 +63,7 @@ python sub_module/merge.py --src1 DiscoGAN-pytorch/data/sms_dms/train  --src2 Di
 python sub_module/merge.py --src1 DiscoGAN-pytorch/data/fk_rk/train    --src2 DiscoGAN-pytorch/data --dst DiscoGAN-pytorch/data/fk_rk/train/
 
 # train
-cd DiscoGAN-pytorch
+cd ${work_dir}/DiscoGAN-pytorch
 python main.py --dataset=ehs_eh --load_path=logs/ehs_eh --is_train=False
 python main.py --dataset=djqt_dlT --load_path=logs/djqt_dlT --is_train=False
 python main.py --dataset=ek_EK --load_path=logs/ek_EK --is_train=False
@@ -80,8 +90,8 @@ sudo cp user/$1/것.jpg sub_module/svg2ttf/data/AC83.png # 것 AC83
 # denoise
 python sub_module/denoise.py --src=sub_module/svg2ttf/data --dst=sub_module/svg2ttf/data
 
-# dilation
-#python sub_module/dilation.py --src sub_module/svg2ttf/data  --num 1 --extension=png
+# # dilation
+# python sub_module/dilation.py --src sub_module/svg2ttf/data  --num 1 --extension=png
 
 # make font
 cd ${work_dir}/sub_module/svg2ttf
@@ -93,5 +103,4 @@ cd ${work_dir}
 sudo mv sub_module/svg2ttf/MyFont.ttf user/$1/$1.ttf
 cp user/$1/$1.ttf flask_server/static/fonts
 sudo rm sub_module/svg2ttf/MyFont.svg
-sudo rm sub_module/data/*
 sudo rm -r sub_module/svg2ttf/tmp
