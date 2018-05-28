@@ -9,9 +9,35 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
         <script type="text/javascript" src={{ url_for('static', filename='js/common.js') }}></script>
+        <script type="text/javascript" src={{ url_for('static', filename='js/html2canvas.js') }}></script>
+        <script type="text/javascript" src={{ url_for('static', filename='js/FileSaver.js') }}></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     </head>
     
     <body>
+        <script>
+            $(document).ready(function(){
+                var btnCaptureArr = document.getElementsByClassName("btnCapture");
+
+                for(var i = 1; i <= btnCaptureArr.length; i++){
+                    var fontName = $(btnCaptureArr[i-1]).attr('id').substring(10, $(btnCaptureArr[i-1]).attr('id').length);
+                    $("#btnCapture" + fontName).click(function(){
+                        var fontName = $(this).attr('id').substring(10, $(this).attr('id').length);
+
+                        html2canvas(document.getElementById("captureDiv"+fontName)).then(function(canvas) {
+                            document.body.appendChild(canvas);
+                            var captureImg = canvas.toDataURL();
+                            console.log(captureImg);
+
+                            canvas.toBlob(function(blob) {
+                                saveAs(blob, fontName+".png"); 
+                            });
+                        });
+                    });
+                }
+            });
+        </script>
+
         <header w3-include-html="header"></header>
         <script>includeHTML();</script>
         
@@ -58,7 +84,19 @@
                                 <tr>
                             {% endif %}
                                 <!-- <td><a href="text/{{ fontfile }}"><img src={{ url_for('static', filename='image/logo.png') }} width="100%"><br><div style="margin-top: 10px;">{{ fontname }}</div></a></td> -->
-                                <td><a href="text/{{ fontfile }}"><div style="font-family: {{ fontname }}; font-size: 1.8em; background-image: url({{ url_for('static', filename='image/list/background.jpeg') }}); background-size: 100% 100%; padding-bottom: 50px; padding-top: 20px;">돈이라는 것은<br>있다가도 없고<br>이따가도 없고</div><div style="margin-top: 10px;">{{ fontname }}</div></a></td>
+                                <td>
+                                    <a href="text/{{ fontfile }}">
+                                        <div id={{ "captureDiv"+fontname }}>
+                                           <div style="font-family: {{ fontname }}; font-size: 1.8em; background-image: url({{ url_for('static', filename='image/list/background.jpeg') }}); background-size: 100% 100%; padding-bottom: 50px; padding-top: 20px;">돈이라는 것은<br>있다가도 없고<br>이따가도 없고
+                                            </div>
+                                            <div style="margin-top: 10px;">
+                                                {{ fontname }}
+                                            </div> 
+                                        </div>
+                                    </a>
+                                    <br>
+                                    <button id={{ "btnCapture"+fontname }} class="btnCapture">캡쳐</button>
+                                </td>
                             {% if loop.index % 3 == 0 %}
                                 </tr>
                             {% endif %}
