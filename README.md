@@ -10,7 +10,7 @@
 
 
 ## 3. 결과 영상
-[![Video Label](/Image/MyFont_img.png)](https://www.youtube.com/watch?v=51nw2zrHumk&feature=youtu.be)
+[![Video Label](/Image/MyFontFinal.png)](https://www.youtube.com/watch?v=51nw2zrHumk&feature=youtu.be)
 
 
 ## 4. 시연 영상
