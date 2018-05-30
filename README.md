@@ -14,7 +14,7 @@
 
 
 ## 4. 시연 영상
-[![Video Label](img.youtube.com/vi/yWhkVtefFOY/0.jpg)](https://www.youtube.com/watch?v=yWhkVtefFOY&feature=youtu.be)
+[![Video Label](/Image/video.png)](https://www.youtube.com/watch?v=yWhkVtefFOY&feature=youtu.be)
 
 ## 5. Abstract
 > Traditionally, fonts have been created for business-to-business or commercial purposes. Also, in order to create Korean fonts, 11,172 characters are processed using Photoshop and Illustrator. This is all done by hand and takes a lot of time and money. Therefore, it is difficult for the most person to make and use various fonts. We provide software that allows users who want to create fonts to easily create their own fonts without spending a lot of time and money.    
