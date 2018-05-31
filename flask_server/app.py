@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf-8')
 
 UPLOAD_FOLDER = 'static/pictures/'			#업로드된 파일이 저장되는 곳
 FONT_FOLDER = 'static/fonts'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])	#허용할 파일 확장자
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'TXT', 'PDF', 'PNG', 'JPG', 'JPEG', 'GIF'])	#허용할 파일 확장자
 ALLOWED_FONT_EXTENSIONS = ['ttf', 'otf']
 
 app = Flask(__name__)
