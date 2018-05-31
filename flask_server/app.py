@@ -118,6 +118,7 @@ def makeFont():
 	if request.method == 'POST':
 		ttfName = request.form['ttfName']
 		os.system("sh ../run.sh " + ttfName)
+		os.system("sh ../move.sh " + ttfName + '.ttf')
 		return redirect(url_for('list'))
 
 @app.route('/text/<fontname>/deleteFont')
