@@ -102,5 +102,14 @@
            </section>
 		
 		<footer w3-include-html="footer"></footer>
+
+            <script>
+                /*크롬 브라우저의 이미지 새로고침 문제에 대한 해결*/
+                var img_arr = $('img');
+                for(var i = 0; i < img_arr.length; i++){
+                    var img_src = $(img_arr[i]).attr('src');
+                    $(img_arr[i]).removeAttr('src').attr('src',img_src+'?number='+Math.random()*1000);
+                }
+            </script>
     </body>
 </html>
